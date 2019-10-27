@@ -78,4 +78,4 @@ And replace the `start` script with the follow value in `package.json`:
 
 ```
 
-5.
+5. Push your code and enjoy!
