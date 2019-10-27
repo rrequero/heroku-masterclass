@@ -14,15 +14,15 @@ Important!! You need to have a heroku account and one app created.
 
 ```
 
-2. Add the next script in package.json
+2. Change the `build` script
 
 ```
 
-"postinstall": "ng build --aot -prod"
+"build": "ng build -prod"
 
 ```
 
-With this script, when heroku or you do `npm install` and it finishes, npm runs this script and generates the dist folder with your app compiled.
+Heroku will run this script after install dependencies to generate the compiled files
 
 3. Add the engines attribute in package.json
 
@@ -39,7 +39,7 @@ With this attribute, you config the version of npm and node in heroku
 
 4. Create the server to run your app.
 
-Create a file with name `server.js` and next content:
+Create a file with name `server.js` and next content. Replace `<app-name>` with the name of your app.
 
 ```
 
@@ -50,11 +50,11 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/<name-of-app>'));
+app.use(express.static(__dirname + '/dist/<app-name>'));
 
 app.get('/*', function(req,res) {
 
-res.sendFile(path.join(__dirname+'/dist/<name-of-app>/index.html'));
+res.sendFile(path.join(__dirname+'/dist/<app-name>/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
@@ -78,4 +78,4 @@ And replace the `start` script with the follow value in `package.json`:
 
 ```
 
-5.
+5. Push your code and enjoy!
