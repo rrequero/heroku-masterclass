@@ -14,15 +14,15 @@ Important!! You need to have a heroku account and one app created.
 
 ```
 
-2. Add the next script in package.json
+2. Change the `build` script
 
 ```
 
-"postinstall": "ng build -prod"
+"build": "ng build -prod"
 
 ```
 
-With this script, when heroku or you do `npm install` and it finishes, npm runs this script and generates the dist folder with your app compiled.
+Heroku will run this script after install dependencies to generate the compiled files
 
 3. Add the engines attribute in package.json
 
